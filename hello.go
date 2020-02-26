@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+const greetingPrefix string = "Hi there, "
 
 func Hello(name string) string {
-	return fmt.Sprintf("Hi there, %s", name)
+	if name == "" {
+		return greetingPrefix + "stranger"
+	}
+
+	return greetingPrefix + name
 }

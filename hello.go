@@ -1,11 +1,27 @@
 package main
 
-const greetingPrefix string = "Hi there, "
+import "strings"
 
-func Hello(name string) string {
+const defaultLanguage = "english"
+
+var languagesGreetMapping = map[string]string{
+	"english": "Hi there, ",
+	"spanish": "Hola, ",
+	"french":  "Bonjour, ",
+}
+
+func Hello(name string, language string) string {
 	if name == "" {
-		return greetingPrefix + "stranger"
+		name = "stranger"
 	}
 
-	return greetingPrefix + name
+	language = strings.ToLower(language)
+
+	greeting := languagesGreetMapping[language]
+
+	if greeting == "" {
+		greeting = languagesGreetMapping[defaultLanguage]
+	}
+
+	return greeting + name
 }

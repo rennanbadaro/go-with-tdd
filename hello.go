@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 const defaultLanguage = "english"
 
@@ -24,4 +27,8 @@ func Hello(name string, language string) string {
 	}
 
 	return greeting + name
+}
+
+func main() {
+	fmt.Println(Hello("", ""))
 }

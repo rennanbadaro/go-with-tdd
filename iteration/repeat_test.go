@@ -1,6 +1,9 @@
 package iteration
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestRepeat(t *testing.T) {
 	t.Run("Should return the given string repeat the given number of repetitions", func(t *testing.T) {
@@ -34,4 +37,10 @@ func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Repeat("a", 10)
 	}
+}
+
+func ExampleRepeat() {
+	result := Repeat("A", 10)
+	fmt.Println(result)
+	// Output: AAAAAAAAAA
 }

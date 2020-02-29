@@ -9,3 +9,29 @@ func Sum(numbers []int) int {
 
 	return sum
 }
+
+func SumAll(collections ...[]int) []int {
+	var sums []int
+
+	for _, collection := range collections {
+		sums = append(sums, Sum(collection))
+	}
+
+	return sums
+}
+
+func SumAllTails(collections ...[]int) []int {
+	var tailSum []int
+
+	for _, collection := range collections {
+		if len(collection) > 1 {
+			tail := collection[1:]
+
+			tailSum = append(tailSum, Sum(tail))
+		} else {
+			tailSum = append(tailSum, 0)
+		}
+	}
+
+	return tailSum
+}
